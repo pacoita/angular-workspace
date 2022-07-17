@@ -21,11 +21,13 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
       username: ['', Validators.required],
-      email: ['', Validators.required]
+      email: ''
     });
   }
 
   register() {
-    console.log(this, this.registrationForm.value);
+    if (this.registrationForm.valid) {
+      console.log(this, this.registrationForm.value);
+    }
   }
 }
