@@ -56,6 +56,9 @@
         <mat-error *ngIf="username?.hasError('required')">
           {{ "Field required!" }}
         </mat-error>
+        <mat-error *ngIf="username?.hasError('minlength')">
+          {{ "Username must be at least "+ usernameMinLength +" characters!" }}
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Email</mat-label>

@@ -10,6 +10,8 @@ import { RegistrationForm } from './model/registration.model';
 export class AppComponent implements OnInit {
   title = 'Angular Workspace';
 
+  readonly usernameMinLength = 5;
+
   registrationForm!: FormGroup<RegistrationForm>;
 
   get username() {
@@ -20,7 +22,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
-      username: ['', Validators.required],
+      username: ['', [Validators.required, Validators.minLength(this.usernameMinLength)]],
       email: ''
     });
   }
