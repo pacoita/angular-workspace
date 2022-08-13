@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { RegistrationForm } from './model/registration.model';
 
 @Component({
@@ -14,12 +14,13 @@ export class AppComponent implements OnInit {
 
   registrationForm!: FormGroup<RegistrationForm>;
 
+  
   get username() {
     return this.registrationForm.get('username');
   }
-
+  
   constructor(private fb: NonNullableFormBuilder) { }
-
+  
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(this.usernameMinLength)]],
