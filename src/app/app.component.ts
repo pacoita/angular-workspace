@@ -18,6 +18,10 @@ export class AppComponent implements OnInit {
   get username() {
     return this.registrationForm.get('username');
   }
+
+  get email() {
+    return this.registrationForm.get('email');
+  }
   
   constructor(private fb: NonNullableFormBuilder) { }
   
@@ -30,7 +34,7 @@ export class AppComponent implements OnInit {
 
   register() {
     if (this.registrationForm.valid) {
-      console.log(this, this.registrationForm.value);
+      console.log(this.registrationForm.value);
     }
   }
 }
